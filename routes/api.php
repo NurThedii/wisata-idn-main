@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\AuthController;
 use App\Http\Controllers\KategoriController;
+use App\Http\Controllers\OrderController;
 use App\Http\Controllers\ProdukController;
 
 Route::post('auth/login', [AuthController::class, 'login']);
@@ -18,8 +19,8 @@ Route::middleware('auth:sanctum')->group(function () {
         Route::get('/hapus/{id}', [KategoriController::class, 'delete']);
         Route::post('/update/{id}', [KategoriController::class, 'update']);
     });
-});
 
-Route::middleware('auth:sanctum')->group(function () {
     Route::apiResource('produk', ProdukController::class);
+
+    Route::apiResource('order', OrderController::class);
 });
