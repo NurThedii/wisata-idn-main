@@ -75,7 +75,7 @@ class AuthController extends Controller
         $user = $request->user();
         if ($user == true) {
             return response()->json([
-                'status'=>'success',
+                'status' => 'success',
                 'user' => $user
             ]);
         } else {
